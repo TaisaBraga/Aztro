@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import AppTopBar from './component/AppTopBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Aztro API</h1>
+      <AppTopBar/>
     </div>
   );
 }

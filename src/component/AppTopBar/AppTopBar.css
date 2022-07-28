@@ -1,0 +1,14 @@
+.AppBar{
+    background: linear-gradient(180deg, rgba(7,28,52,1) 17%, rgba(20,56,91,1) 64%, rgba(27,85,139,1) 98%);
+    
+}
+
+.MenuIcon{
+    color: #CDAD00;
+    margin-right: 20px;
+}
+
+.AppName{
+    color: #CDAD00;
+    text-shadow: 13px 13px 13px rgba(0, 0, 0, 0.361);
+}
