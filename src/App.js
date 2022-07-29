@@ -1,10 +1,12 @@
-import './App.css';
-import AppTopBar from './component/AppTopBar';
+import "./App.css";
+import CardsTemplate from "./page/cardsTemplate"
+
+
 
 function App() {
   return (
     <div className="App">
-      <AppTopBar/>
+      <CardsTemplate/>
     </div>
   );
 }

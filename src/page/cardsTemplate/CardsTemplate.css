@@ -1,0 +1,7 @@
+.CardsTemplate {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 10px;
+  justify-content: center;
+  margin: 60px auto;
+}
