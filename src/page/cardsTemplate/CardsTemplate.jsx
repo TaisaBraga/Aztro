@@ -1,14 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import SingleCard from "../../component/SingleCard";
 import "./CardsTemplate.css";
 
 export default function CardsTemplate() {
+  const navigate = useNavigate();
     const baseImageUrl = "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos"
 
-
+    // onClick={() => navigate("qualqure", {signImage:`${baseImageUrl}/signo-aries.png`, signName: "aries"})}
   return (
     <div className="CardsTemplate">
-      <SingleCard signImage={`${baseImageUrl}/signo-aries.png`} signName={"aries"} />
+      <SingleCard signImage={`${baseImageUrl}/signo-aries.png`}  signName={"aries"}/>
       <SingleCard signImage={`${baseImageUrl}/signo-touro.png`} signName={"taurus"} />
       <SingleCard signImage={`${baseImageUrl}/signo-gemeos.png`} signName={"gemini"} />
       <SingleCard signImage={`${baseImageUrl}/signo-cancer.png`} signName={"cancer"} />

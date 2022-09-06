@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { returnAllSigns } from "../../services/serviceApi";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./SingleCard.css";
 
 export default function SingleCard({ signImage, signName }) {
-  const [sign, setSign] = useState([]);
-
-  useEffect(() => {
-    returnAllSigns(signName).then((data) => {
-      setSign(data);
-    });
-  }, []);
+  const navigate = useNavigate();
 
   return (
-    <div className="SingleCard" value={sign}>
-      <img src={signImage} alt="Sign" className="SingleImage" />
+    <div
+      className="SingleCard"
+      onClick={() => navigate(`/horoscopo/${signName}`)}
+    >
+      <img src={signImage} alt={signName} className="SingleImage" />
     </div>
   );
 }
