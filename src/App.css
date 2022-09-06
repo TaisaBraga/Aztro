@@ -3,3 +3,22 @@
   padding: 0;
 }
 
+.App{
+  background-color: #f1bef127;
+  margin: 0 auto;
+  padding: 2px;
+}
+.App h1{
+  color: #9e0a9e;
+  font-family: 'Cinzel Decorative', cursive;
+  margin: 15px 0 -20px 0;
+  text-align: center;
+}
+
+.dividerImage{
+  display: flex;
+  margin: 12px auto;
+  width: 70px;
+  transform: rotate(-10deg)
+}
+
