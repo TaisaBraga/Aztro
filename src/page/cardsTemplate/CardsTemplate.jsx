@@ -1,13 +1,13 @@
 import React from "react";
-import SingleCard from "../../component/SingleCard";
-import "./CardsTemplate.css";
+import SingleCard from "../../component/SingleCard/SingleCard";
+import { HomeTemplate } from "./styles";
 
-export default function CardsTemplate() {
+const CardsTemplate = () => {
   const baseImageUrl =
     "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos";
 
   return (
-    <div className="CardsTemplate">
+    <HomeTemplate>
       <SingleCard
         signImage={`${baseImageUrl}/signo-aries.png`}
         signName={"aries"}
@@ -56,6 +56,8 @@ export default function CardsTemplate() {
         signImage={`${baseImageUrl}/signo-peixes.png`}
         signName={"pisces"}
       />
-    </div>
+    </HomeTemplate>
   );
 }
+
+export default CardsTemplate

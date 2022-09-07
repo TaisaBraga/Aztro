@@ -1,10 +1,14 @@
 *{
   margin: 0;
   padding: 0;
-  
+}
+
+body{
+  background-color: rgba(248, 175, 248, 0.153);
 }
 
 .App{
+  
   margin: 0 auto;
   padding: 2px;
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import divid from "./images/divid.png";
-import CardsTemplate from "./page/cardsTemplate";
+import CardsTemplate from "./page/cardsTemplate/CardsTemplate";
 import InfoSign from "./page/InfoSign/InfoSign";
 
 function App() {

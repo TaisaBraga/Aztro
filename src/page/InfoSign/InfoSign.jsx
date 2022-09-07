@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { returnAllSigns } from "../../services/serviceApi";
 
-export default function InfoSign() {
+const InfoSign = () => {
   const [sign, setSign] = useState([]);
   const { signName } = useParams();
   const todayDate = new Date().toLocaleDateString()
@@ -32,3 +32,5 @@ export default function InfoSign() {
     </div>
   );
 }
+
+export default InfoSign
