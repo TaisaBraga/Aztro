@@ -3,26 +3,32 @@ import { useParams } from "react-router-dom";
 import { returnAllSigns } from "../../services/serviceApi";
 
 export default function InfoSign() {
-  const baseImageUrl =
-    "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos";
-
   const [sign, setSign] = useState([]);
-  const { signName } = useParams()
+  const { signName } = useParams();
+  const todayDate = new Date().toLocaleDateString()
+
 
   useEffect(() => {
     returnAllSigns(signName).then((data) => {
       setSign(data);
     });
-  }, []);
+  }, [signName]);
 
   return (
     <div>
-      <img
-        src={`${baseImageUrl}/signo-aries.png`}
-        className="SingleImage"
-        alt=""
-      />
-      <p>{sign.color}</p>
+      <div>
+        <h2>{signName}</h2>
+        <p>{sign.date_range}</p>
+      </div>
+      <div>
+        <p>Yesterday</p>
+        <p>Today</p>
+        <p>Tomorrow</p>
+      </div>
+      <div>
+        <p>Horóscopo do dia: {todayDate}</p>
+        <p>{sign.description}</p>
+      </div>
     </div>
   );
 }
