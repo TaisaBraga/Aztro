@@ -8,21 +8,20 @@ body{
 }
 
 .App{
-  
   margin: 0 auto;
-  padding: 2px;
+  padding: 0.125rem;
 }
 .App h1{
   color: #9e0a9e;
   font-family: 'Cinzel Decorative', cursive;
-  margin: 15px 0 -20px 0;
+  margin: 0.938rem 0 -20px 0;
   text-align: center;
 }
 
 .dividerImage{
   display: flex;
-  margin: 12px auto;
-  width: 70px;
+  margin: 0.75rem auto;
+  width: 4.375rem;
   transform: rotate(-10deg)
 }
 

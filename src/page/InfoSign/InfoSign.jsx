@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { returnAllSigns } from "../../services/serviceApi";
 
+import { MainSignInfo } from "./styles";
+
 const InfoSign = () => {
   const [sign, setSign] = useState([]);
   const { signName } = useParams();
@@ -16,10 +18,10 @@ const InfoSign = () => {
 
   return (
     <div>
-      <div>
+      <MainSignInfo>
         <h2>{signName}</h2>
         <p>{sign.date_range}</p>
-      </div>
+      </MainSignInfo>
       <div>
         <p>Yesterday</p>
         <p>Today</p>

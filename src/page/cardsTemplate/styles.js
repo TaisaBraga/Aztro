@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const HomeTemplate = styled.div `
+export const HomeTemplate = styled.div`
   align-items: center;
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 10px;
+  display: flex;
   justify-content: center;
-`
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 43.75rem;
+`;
