@@ -3,7 +3,15 @@ import Loader from "../../component/Loader/Loader";
 import { useParams } from "react-router-dom";
 import { returnAllSigns } from "../../services/serviceApi";
 
-import { MainSignInfo } from "./styles";
+import {
+  MainSignInfo,
+  InfoSignPage,
+  DatesSign,
+  DatesSignButton,
+  SignsDescription,
+  ExtraSignInfo,
+  ImageBackgroud,
+} from "./styles";
 
 const InfoSign = () => {
   const [sign, setSign] = useState([]);
@@ -19,27 +27,33 @@ const InfoSign = () => {
   }, [signName]);
 
   return (
-    <div>
+    <InfoSignPage>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <MainSignInfo>
-            <h2>{signName}</h2>
-            <p>{sign.date_range}</p>
-          </MainSignInfo>
-          <div>
-            <p>Yesterday</p>
-            <p>Today</p>
-            <p>Tomorrow</p>
-          </div>
-          <div>
-            <p>Horóscopo do dia: {todayDate}</p>
-            <p>{sign.description}</p>
-          </div>
+          <SignsDescription>
+            <MainSignInfo>
+              <h2>{signName}</h2>
+              <p>{sign.date_range}</p>
+            </MainSignInfo>
+            <DatesSign>
+              <DatesSignButton type="button" value="Yesterday" />
+              <DatesSignButton type="button" value="Today" />
+              <DatesSignButton type="button" value="Tomorrow" />
+            </DatesSign>
+          </SignsDescription>
+
+          {/* <ExtraSignInfo>
+              <p>Compatibility: {sign.compatibility}</p>
+              <p>Lucky Time: {sign.lucky_time}</p>
+              <p>Lucky Number: {sign.lucky_number}</p>
+              <p>Color: {sign.color}</p>
+              <p>Mood: {sign.mood}</p>
+            </ExtraSignInfo> */}
         </>
       )}
-    </div>
+    </InfoSignPage>
   );
 };
 
