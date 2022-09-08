@@ -50,15 +50,15 @@ export const SignsDescription = styled.div`
   display: flex;
 `;
 
-// export const ExtraSignInfo = styled.div`
-//   align-items: center;
-//   color: #503850;
-//   justify-content: center;
-//   font-size: 1.125rem;
-//   margin: 2rem 0 3.125rem 10.375rem;
-//   max-width: 31.25rem;
-//   & p {
-//     font-family: "Quicksand", sans-serif;
-//     padding: 0.625rem;
-//   }
-// `;
+export const ExtraSignInfo = styled.div`
+  align-items: center;
+  color: #503850;
+  justify-content: center;
+  font-size: 1.125rem;
+  margin: 2rem 0 3.125rem 10.375rem;
+  max-width: 31.25rem;
+  & p {
+    font-family: "Quicksand", sans-serif;
+    padding: 0.625rem;
+  }
+`;

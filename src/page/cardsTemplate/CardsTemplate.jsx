@@ -51,6 +51,7 @@ const CardsTemplate = () => {
       <SingleCard
         signImage={`${baseImageUrl}/signo-aquario.png`}
         signName={"aquarius"}
+        
       />
       <SingleCard
         signImage={`${baseImageUrl}/signo-peixes.png`}
