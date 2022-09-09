@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = "https://aztro.sameerkumar.website";
 
-export function returnAllSigns(signName, day) {
+export function returnSignInfo(signName, day) {
   return axios
     .post(`${baseUrl}/?sign=${signName}&day=${day || "today"}`)
     .then((response) => {

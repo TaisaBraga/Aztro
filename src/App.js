@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes >
           <Route path="/" element={<CardsTemplate />} />
-          <Route path="/horoscopo/:signName" element={<InfoSign />} />
+          <Route path="/horoscopo/:signName/" element={<InfoSign />} />
         </Routes>
       </BrowserRouter>
     </div>

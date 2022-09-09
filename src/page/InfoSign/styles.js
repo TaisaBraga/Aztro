@@ -30,7 +30,7 @@ export const DatesSign = styled.div`
   margin-left: 12.5rem;
 `;
 
-export const DatesSignButton = styled.input`
+export const DateSignButton = styled.input`
   background-color: #503850;
   border: none;
   border-radius: 5px;
@@ -42,6 +42,9 @@ export const DatesSignButton = styled.input`
   margin: 0.625rem;
   width: 8rem;
   &:hover {
+    background-color: #aa6581;
+  }
+  &:focus{
     background-color: #aa6581;
   }
 `;

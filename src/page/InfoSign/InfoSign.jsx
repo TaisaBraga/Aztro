@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../component/Loader/Loader";
 import { useParams } from "react-router-dom";
-import { returnAllSigns } from "../../services/serviceApi";
+import { returnSignInfo } from "../../services/serviceApi";
 
 import {
   MainSignInfo,
   InfoSignPage,
   DatesSign,
-  DatesSignButton,
+  DateSignButton,
   SignsDescription,
   ExtraSignInfo,
 } from "./styles";
@@ -19,7 +19,7 @@ const InfoSign = () => {
   const { signName } = useParams();
 
   useEffect(() => {
-    returnAllSigns(signName, day).then((data) => {
+    returnSignInfo(signName, day).then((data) => {
       setSign(data);
       setLoading(false);
     });
@@ -37,17 +37,20 @@ const InfoSign = () => {
               <p>{sign.date_range}</p>
             </MainSignInfo>
             <DatesSign>
-              <DatesSignButton
+              <DateSignButton
                 type="button"
                 value="yesterday"
                 onClick={() => setDay("yesterday")}
               />
-              <DatesSignButton
+              <DateSignButton
                 type="button"
+                style={{
+                  backgroundColor: day === "today" ? '#aa6581' : '#503850'
+                }}
                 value="Today"
                 onClick={() => setDay("today")}
               />
-              <DatesSignButton
+              <DateSignButton
                 type="button"
                 value="tomorrow"
                 onClick={() => setDay("tomorrow")}
@@ -55,18 +58,14 @@ const InfoSign = () => {
             </DatesSign>
           </SignsDescription>
 
-          {
-            <ExtraSignInfo>
-              <p>Day's horoscope: {sign.current_date}</p>
-
-              <p>Compatibility: {sign.compatibility}</p>
-              <p>Lucky Time: {sign.lucky_time}</p>
-              <p>Lucky Number: {sign.lucky_number}</p>
-              <p>Color: {sign.color}</p>
-              <p>Mood: {sign.mood}</p>
-              <p>Description: {sign.description}</p>
-            </ExtraSignInfo>
-          }
+          <ExtraSignInfo>
+            <p>Daily horoscope {sign.current_date}: {sign.description}</p>
+            <p>Compatibility: {sign.compatibility}</p>
+            <p>Lucky Time: {sign.lucky_time}</p>
+            <p>Lucky Number: {sign.lucky_number}</p>
+            <p>Color: {sign.color}</p>
+            <p>Mood: {sign.mood}</p>
+          </ExtraSignInfo>
         </>
       )}
     </InfoSignPage>
