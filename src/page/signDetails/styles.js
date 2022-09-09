@@ -5,15 +5,10 @@ export const InfoSignPage = styled.div`
 `;
 
 export const MainSignInfo = styled.div`
-  background-color: #efe6ee;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  align-items: center;
   display: flex;
   flex-direction: column;
-  border-radius: 100%;
-  height: 12.5rem;
   justify-content: center;
-  text-align: center;
-  width: 12.5rem;
   & h2 {
     font-family: "Cinzel Decorative", cursive;
     margin-bottom: 0.75rem;
@@ -27,7 +22,6 @@ export const DatesSign = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-left: 12.5rem;
 `;
 
 export const DateSignButton = styled.input`
@@ -44,7 +38,7 @@ export const DateSignButton = styled.input`
   &:hover {
     background-color: #aa6581;
   }
-  &:focus{
+  &:focus {
     background-color: #aa6581;
   }
 `;
@@ -58,10 +52,22 @@ export const ExtraSignInfo = styled.div`
   color: #503850;
   justify-content: center;
   font-size: 1.125rem;
-  margin: 2rem 0 3.125rem 10.375rem;
+  margin: 0 auto;
   max-width: 31.25rem;
+  text-align: justify;
   & p {
     font-family: "Quicksand", sans-serif;
-    padding: 0.625rem;
+    text-indent: 5%;
+    margin-top: 0.5em;
   }
+  & h3 {
+    font-family: "Quicksand", sans-serif;
+  }
+`;
+
+export const Icon = styled.div`
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

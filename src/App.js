@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import divid from "./images/divid.png";
 import CardsTemplate from "./page/cardsTemplate/CardsTemplate";
-import InfoSign from "./page/InfoSign/InfoSign";
+import SignDetails from "./page/signDetails/SignDetails";
 
 function App() {
   
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes >
           <Route path="/" element={<CardsTemplate />} />
-          <Route path="/horoscopo/:signName/" element={<InfoSign />} />
+          <Route path="/horoscopo/:signName/" element={<SignDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
