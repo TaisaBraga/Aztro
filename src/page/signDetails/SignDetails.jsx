@@ -26,6 +26,46 @@ const SignDetails = () => {
     });
   }, [signName, day]);
 
+  const baseImageUrl =
+    "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos";
+
+  let listSignImage = [
+    "signo-aries.png",
+    "signo-touro.png",
+    "signo-gemeos.png",
+    "signo-cancer.png",
+    "signo-leao.png",
+    "signo-virgem.png",
+    "signo-libra.png",
+    "signo-escorpiao.png",
+    "signo-sagitario.png",
+    "signo-capricornio.png",
+    "signo-aquario.png",
+    "signo-peixes.png",
+  ];
+  let listSignName = [
+    "aries",
+    "taurus",
+    "gemini",
+    "cancer",
+    "leo",
+    "virgo",
+    "libra",
+    "scorpio",
+    "sagittarius",
+    "capricorn",
+    "aquarius",
+    "pisces",
+  ];
+
+  function getSignImage(signName) {
+    for (let i = 0; i < listSignImage.length; i++) {
+      if (signName === listSignName[i]) {
+        return `${baseImageUrl}/${listSignImage[i]}`;
+      }
+    }
+  }
+
   return (
     <InfoSignPage>
       {loading ? (
@@ -44,6 +84,7 @@ const SignDetails = () => {
               </span>{" "}
               horoscope
             </h2>
+            <img src={getSignImage(signName)} alt="" />
           </MainSignInfo>
           <DatesSign>
             <DateSignButton

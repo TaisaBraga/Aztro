@@ -7,9 +7,9 @@ const SingleCard = ({ signImage, signName }) => {
 
   return (
     <Card onClick={() => navigate(`/horoscopo/${signName}`)}>
-      <SingleImage src={signImage} alt={signName} className="SingleImage" />
+      <SingleImage src={signImage} alt={signName} />
     </Card>
   );
-}
+};
 
 export default SingleCard;

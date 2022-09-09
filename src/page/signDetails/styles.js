@@ -16,6 +16,13 @@ export const MainSignInfo = styled.div`
   & p {
     font-family: "Quicksand", sans-serif;
   }
+  & img {
+    display: flex;
+    align-self: flex-start;
+    position: absolute;
+    margin-top: 5rem;
+    width: 15.625rem;
+  }
 `;
 
 export const DatesSign = styled.div`
@@ -70,4 +77,9 @@ export const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const SignImage = styled.div`
+  & img {
+  }
 `;
