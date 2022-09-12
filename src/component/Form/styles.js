@@ -4,13 +4,13 @@ export const SubmitButton = styled.input`
   align-items: center;
   background: #fce0a7;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   cursor: pointer;
   display: flex;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   justify-content: center;
-  margin: 15px auto;
-  padding: 5px;
-  width: 80px;
+  margin: 0.938rem auto;
+  padding: 0.313rem;
+  width: 5rem;
 `;

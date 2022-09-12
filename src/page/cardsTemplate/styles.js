@@ -28,19 +28,20 @@ export const QuestionDiv = styled.div`
   & h2 {
     color: #855e6e;
     font-family: "Cinzel Decorative", cursive;
-    font-size: 25px;
-    margin-bottom: 3rem;
+    font-size: 1.563rem;
+    margin-bottom: 2rem;
   }
 
   & Form {
     align-items: center;
-    background: #855e6e;
-    border-radius: 5px;
-    box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.450);
+    background-color: #b8cabe;
+    border-radius: 0.313rem;
     display: flex;
+    font-family: "Quicksand", sans-serif;
     justify-content: center;
-    height: 200px;
-    margin-bottom: 30px;
-    width: 600px;
+    height: 18.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 18.75rem;
   }
 `;
