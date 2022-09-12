@@ -9,6 +9,7 @@ const SingleCard = ({ signImage, signName }) => {
     <Card onClick={() => navigate(`/horoscopo/${signName}`)}>
       <SingleImage src={signImage} alt={signName} />
     </Card>
+    
   );
 };
 
