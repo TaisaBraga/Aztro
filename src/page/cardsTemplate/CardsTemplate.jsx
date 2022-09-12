@@ -60,7 +60,7 @@ const CardsTemplate = () => {
           signName={"pisces"}
         />
       </HomeTemplate>
-      <Icon>
+      {/* <Icon>
         <StarIcon
           style={{
             color: "#aa6581",
@@ -70,7 +70,7 @@ const CardsTemplate = () => {
       <QuestionDiv>
         <h2>What's my sign?</h2>
         <Form/>
-      </QuestionDiv>
+      </QuestionDiv> */}
     </>
   );
 };

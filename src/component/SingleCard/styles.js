@@ -6,15 +6,21 @@ export const Card = styled.div`
   box-shadow: 0.125rem 0.188rem 0.313rem rgba(51, 51, 51, 0.283);
   width: 8.125rem;
   height: 8.125rem;
-  margin: 0.313rem;
+  margin: 0.525rem;
   padding: 0.625rem;
+
+  & p{
+    color: #DF608C;
+    font-family: "Quicksand", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+  }
 `;
 
 export const SingleImage = styled.img`
-  align-items: center;
   display: flex;
-  justify-content: center;
-  width: 8.125rem;
+  margin: 0 auto;
+  width: 7em;
   &:hover {
     cursor: pointer;
     background-color: #fff0f5;
