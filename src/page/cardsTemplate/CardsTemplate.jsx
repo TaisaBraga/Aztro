@@ -1,7 +1,6 @@
 import React from "react";
 import StarIcon from "@material-ui/icons/Star";
 import SingleCard from "../../component/SingleCard/SingleCard";
-import Form from "../../component/Form/Form"
 import { HomeTemplate, Icon, QuestionDiv } from "./styles";
 
 const CardsTemplate = () => {
