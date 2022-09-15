@@ -1,5 +1,5 @@
 import React from "react";
-import SetAllCards from "../../organisms/HomeCards";
+import SetAllCards from "../organisms/HomeCards";
 
 const HomePage = () => {
   
