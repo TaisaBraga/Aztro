@@ -3,17 +3,78 @@ import StarIcon from "@material-ui/icons/Star";
 import Loader from "../../component/Loader/Loader";
 import { useParams } from "react-router-dom";
 import { returnSignDetails } from "../../services/serviceApi";
+import { makeStyles } from "@material-ui/core/styles";
 
-import {
-  MainSignInfo,
-  InfoSignPage,
-  DatesSign,
-  DateSignButton,
-  ExtraSignInfo,
-  Icon,
-} from "./styles";
-
+const useStyles = makeStyles(() => ({
+  header: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  titleHeader: {
+    fontFamily: "Cinzel Decorative, cursive",
+    marginBottom: "0.75rem",
+  },
+  signImage: {
+    display: "flex",
+    alignSelf: "flex-start",
+    position: "absolute",
+    margin: "5rem",
+    width: "15.625rem",
+  },
+  span: {
+    color: "#9e0a9e",
+  },
+  changeDate: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+  },
+  changeDateButton: {
+    backgroundColor: "#503850",
+    border: "none",
+    borderRadius: "5px",
+    boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.3)",
+    color: "#ebebeb",
+    cursor: "pointer",
+    fontFamily: "Cinzel Decorative, cursive",
+    padding: "0.3rem",
+    margin: "0.625rem",
+    width: "8rem",
+    "&:hover": {
+      backgroundColor: "#aa6581",
+    },
+    "&:focus": {
+      backgroundColor: "#aa6581",
+    },
+  },
+  extraDetailsSign: {
+    alignItems: "center",
+    color: "#503850",
+    justifyContent: "center",
+    fontSize: "1.125rem",
+    margin: "0 auto",
+    maxWidth: "31.25rem",
+    textAlign: "justify",
+  },
+  iconDiv: {
+    padding: "0.5em",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  subTitleDetails: {
+    fontFamily: "Quicksand, sans-serif",
+  },
+  detailsDescription: {
+    fontFamily: "Quicksand, sans-serif",
+    textIndent: "5%",
+    marginTop:"0.5em",
+  }
+}));
 const SignDetails = () => {
+  const classes = useStyles();
   const [sign, setSign] = useState([]);
   const [loading, setLoading] = useState(true);
   const [day, setDay] = useState("today");
@@ -67,32 +128,30 @@ const SignDetails = () => {
   }
 
   return (
-    <InfoSignPage>
+    <>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <MainSignInfo>
-            <h2>
-              Daily{" "}
-              <span
-                style={{
-                  color: "#9e0a9e",
-                }}
-              >
-                {signName}
-              </span>{" "}
-              horoscope
+          <div className={classes.header}>
+            <h2 className={classes.titleHeader}>
+              Daily <span className={classes.span}>{signName}</span> horoscope
             </h2>
-            <img src={getSignImage(signName)} alt="" />
-          </MainSignInfo>
-          <DatesSign>
-            <DateSignButton
+            <img
+              src={getSignImage(signName)}
+              alt=""
+              className={classes.signImage}
+            />
+          </div>
+          <div className={classes.changeDate}>
+            <input
+              className={classes.changeDateButton}
               type="button"
               value="yesterday"
               onClick={() => setDay("yesterday")}
             />
-            <DateSignButton
+            <input
+              className={classes.changeDateButton}
               type="button"
               style={{
                 backgroundColor: day === "today" ? "#aa6581" : "#503850",
@@ -100,32 +159,33 @@ const SignDetails = () => {
               value="Today"
               onClick={() => setDay("today")}
             />
-            <DateSignButton
+            <input
+              className={classes.changeDateButton}
               type="button"
               value="tomorrow"
               onClick={() => setDay("tomorrow")}
             />
-          </DatesSign>
-          <ExtraSignInfo>
-            <p>{sign.description}</p>
-            <Icon>
+          </div>
+          <div className={classes.extraDetailsSign}>
+            <p className={classes.detailsDescription}>{sign.description}</p>
+            <div className={classes.iconDiv}>
               <StarIcon
                 style={{
                   color: "#aa6581",
                 }}
               />
-            </Icon>
-            <h3>More information about {signName} sign</h3>
-            <p>Birth in: {sign.date_range}</p>
-            <p>Compatibility: {sign.compatibility}</p>
-            <p>Lucky Time: {sign.lucky_time}</p>
-            <p>Lucky Number: {sign.lucky_number}</p>
-            <p>Color: {sign.color}</p>
-            <p>Mood: {sign.mood}</p>
-          </ExtraSignInfo>
+            </div>
+            <h3 className={classes.subTitleDetails}>More information about {signName} sign</h3>
+            <p className={classes.detailsDescription}>Birth in: {sign.date_range}</p>
+            <p className={classes.detailsDescription}>Compatibility: {sign.compatibility}</p>
+            <p className={classes.detailsDescription}>Lucky Time: {sign.lucky_time}</p>
+            <p className={classes.detailsDescription}>Lucky Number: {sign.lucky_number}</p>
+            <p className={classes.detailsDescription}>Color: {sign.color}</p>
+            <p className={classes.detailsDescription}>Mood: {sign.mood}</p>
+          </div>
         </>
       )}
-    </InfoSignPage>
+    </>
   );
 };
 
