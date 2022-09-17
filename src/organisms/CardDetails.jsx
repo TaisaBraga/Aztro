@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Loader from "../molecules/Loader";
 import { returnSignDetails } from "../services/serviceApi";
+import { SignsNameContext } from "../context/ListSignNames";
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -14,7 +16,8 @@ const useStyles = makeStyles(() => ({
   },
   titleHeader: {
     fontFamily: "Cinzel Decorative, cursive",
-    marginBottom: "0.75rem",
+    marginBottom: "0.5rem",
+    marginTop: "0.5em",
   },
   signImage: {
     display: "flex",
@@ -59,18 +62,36 @@ const useStyles = makeStyles(() => ({
     textAlign: "justify",
   },
   iconDiv: {
-    padding: "0.5em",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    margin: "0.5rem",
   },
   subTitleDetails: {
     fontFamily: "Quicksand, sans-serif",
+    marginLeft: "1em",
+  },
+  dailyDetailsDescription: {
+    fontFamily: "Quicksand, sans-serif",
+    padding: "1em",
+    textIndent: "5%",
   },
   detailsDescription: {
     fontFamily: "Quicksand, sans-serif",
-    textIndent: "5%",
+    textIndent: "10%",
     marginTop: "0.5em",
+  },
+  ToBackIcon: {
+    background: "#503850",
+    borderRadius: "100%",
+    color: "#ebebeb",
+    cursor: "pointer",
+    display: "flex",
+    position: "absolute",
+    margin: "30px",
+    "&:hover": {
+      backgroundColor: "#aa6581",
+    },
   },
 }));
 
@@ -83,6 +104,8 @@ const SignDetails = () => {
   const [loading, setLoading] = useState(true);
   const [day, setDay] = useState("today");
   const { signName } = useParams();
+  const navigate = useNavigate();
+  const { listSignName } = useContext(SignsNameContext);
 
   useEffect(() => {
     returnSignDetails(signName, day).then((data) => {
@@ -91,44 +114,30 @@ const SignDetails = () => {
     });
   }, [signName, day]);
 
-//   const listSignName = [
-//     { SignNamePt: "aries", SignNameEn: "aries" },
-//     { SignNamePt: "touro", SignNameEn: "taurus" },
-//     { SignNamePt: "gemeos", SignNameEn: "gemini" },
-//     { SignNamePt: "cancer", SignNameEn: "cancer" },
-//     { SignNamePt: "leao", SignNameEn: "leo" },
-//     { SignNamePt: "virgem", SignNameEn: "virgo" },
-//     { SignNamePt: "libra", SignNameEn: "libra" },
-//     { SignNamePt: "escorpiao", SignNameEn: "scorpio" },
-//     { SignNamePt: "sagitario", SignNameEn: "sagittarius" },
-//     { SignNamePt: "capricornio", SignNameEn: "capricorn" },
-//     { SignNamePt: "aquario", SignNameEn: "aquarius" },
-//     { SignNamePt: "peixes", SignNameEn: "pisces" },
-//   ];
-
-//   function getSignImage(signName) {
-//     for (let i = 0; i < listSignName.SignNameEn.length; i++) {
-//       if (signName === listSignName.SignNameEn[i]) {
-//         return `${baseImageUrl}/${listSignName.SignNameEn[i]}`;
-//       }
-//     }
-//   }
-
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <>
+          <ArrowBackIcon
+            onClick={() => navigate(-1)}
+            className={classes.ToBackIcon}
+          />
           <div className={classes.header}>
             <h2 className={classes.titleHeader}>
               Daily <span className={classes.span}>{signName}</span> horoscope
             </h2>
-            {/* <img
-              src={getSignImage(signName)}
-              alt=""
-              className={classes.signImage}
-            /> */}
+            {listSignName
+              .filter((item) => item.SignNameEn === signName)
+              .map((setSignImage, index) => (
+                <img
+                  key={index}
+                  src={`${baseImageUrl}/signo-${setSignImage.SignNamePt}.png`}
+                  alt=""
+                  className={classes.signImage}
+                />
+              ))}
           </div>
           <div className={classes.changeDate}>
             <input
@@ -154,7 +163,9 @@ const SignDetails = () => {
             />
           </div>
           <div className={classes.extraDetailsSign}>
-            <p className={classes.detailsDescription}>{sign.description}</p>
+            <p className={classes.dailyDetailsDescription}>
+              {sign.description}
+            </p>
             <div className={classes.iconDiv}>
               <StarIcon
                 style={{

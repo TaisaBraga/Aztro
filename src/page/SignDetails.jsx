@@ -2,10 +2,7 @@ import React from "react";
 import CardDetails from "../organisms/CardDetails";
 
 const SignDetails = () => {
-  
-  return (
-    <CardDetails />
-  );
+  return <CardDetails />;
 };
 
 export default SignDetails;
