@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {useContext} from "react";
 import "./App.css";
 import divider from "./images/divider.png";
-import HomePage from "./page/HomePage/HomePage";
-import SignDetails from "./page/signDetails/SignDetails";
+import HomePage from "./page/HomePage";
+import SignDetails from "./page/SignDetails";
 
 function App() {
+ 
   return (
     <div className="App">
       <h1>Horóscopo</h1>
