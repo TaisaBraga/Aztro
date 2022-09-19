@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Loader from "../molecules/Loader";
-import { returnSignDetails } from "../services/serviceApi";
-import { SignsNameContext } from "../context/ListSignNames";
+import { returnSignDetails } from "../../services/serviceApi";
+import { SignsNameContext } from "../../context/ListSignNames";
 
 const useStyles = makeStyles(() => ({
   header: {

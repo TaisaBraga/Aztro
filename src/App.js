@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {useContext} from "react";
 import "./App.css";
 import divider from "./images/divider.png";
-import HomePage from "./page/HomePage";
-import SignDetails from "./page/SignDetails";
+import HomePage from "./pages/HomePage";
+import SignDetails from "./pages/SignDetails";
 
 function App() {
  
