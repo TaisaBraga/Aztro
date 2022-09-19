@@ -1,10 +1,8 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import divider from "./assets/divider.png";
-import HomePage from "./pages/HomePage";
-import SignDetails from "./pages/SignDetails";
 import { theme } from "./assets/theme";
 import { ThemeProvider } from "@material-ui/core";
+import GetRoutes from "./routes";
 
 function App() {
   return (
@@ -13,10 +11,7 @@ function App() {
       <div className="App">
         <h1>Horóscopo</h1>
         <img src={divider} alt="das" className="dividerImage" />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/horoscopo/:signName/" element={<SignDetails />} />
-          </Routes>
+          <GetRoutes/>
       </div>
     </ThemeProvider>
   );
