@@ -1,5 +1,5 @@
 import React from "react";
-import CardDetails from "../organisms/CardDetails";
+import CardDetails from "../components/organisms/CardDetails";
 
 const SignDetails = () => {
   return <CardDetails />;
