@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import SignsNameProvider from "./context/ListSignNames";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <SignsNameProvider>
-      <App />
-    </SignsNameProvider>
+    <BrowserRouter>
+      <SignsNameProvider>
+        <App />
+      </SignsNameProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

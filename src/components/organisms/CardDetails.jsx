@@ -7,7 +7,7 @@ import Loader from "../molecules/Loader";
 import { returnSignDetails } from "../../services/serviceApi";
 import { SignsNameContext } from "../../context/ListSignNames";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   header: {
     alignItems: "center",
     display: "flex",
@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => ({
     position: "absolute",
     margin: "5rem",
     width: "15.625rem",
+
   },
   span: {
     color: "#9e0a9e",
