@@ -1,4 +1,3 @@
-import React from "react";
 import CardDetails from "../components/organisms/CardDetails";
 
 const SignDetails = () => {
