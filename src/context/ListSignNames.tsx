@@ -1,9 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, ReactNode } from "react";
 
-export const SignsNameContext = createContext();
+type SignsNameContextProps = {
+  children: ReactNode
+}
 
-const SignsNameProvider = ({ children }) => {
-  const listSignName = [
+type listSignNameType = {
+  listSignName: object
+}
+
+const inicialValue = {
+  listSignName: []
+}
+
+export const SignsNameContext = createContext<listSignNameType>(inicialValue);
+
+const SignsNameProvider = ({ children }: SignsNameContextProps ) => {
+  const listSignName  = [
     { SignNamePt: "aries", SignNameEn: "aries" },
     { SignNamePt: "touro", SignNameEn: "taurus" },
     { SignNamePt: "gemeos", SignNameEn: "gemini" },
