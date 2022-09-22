@@ -1,33 +1,38 @@
-import React, { createContext, ReactNode } from "react";
+import React, { createContext, ReactNode, useContext } from "react";
 
 type SignsNameContextProps = {
   children: ReactNode
 }
 
-type listSignNameType = {
-  listSignName: object
+export interface IsignName {
+  signNamePt: string;
+  signNameEn: string;
 }
 
-const inicialValue = {
+interface IlistSignName {
+  listSignName: IsignName[];
+}
+
+
+export const SignsNameContext = createContext<IlistSignName>({
   listSignName: []
-}
-
-export const SignsNameContext = createContext<listSignNameType>(inicialValue);
+});
+export const useSignsName = () => useContext(SignsNameContext);
 
 const SignsNameProvider = ({ children }: SignsNameContextProps ) => {
-  const listSignName  = [
-    { SignNamePt: "aries", SignNameEn: "aries" },
-    { SignNamePt: "touro", SignNameEn: "taurus" },
-    { SignNamePt: "gemeos", SignNameEn: "gemini" },
-    { SignNamePt: "cancer", SignNameEn: "cancer" },
-    { SignNamePt: "leao", SignNameEn: "leo" },
-    { SignNamePt: "virgem", SignNameEn: "virgo" },
-    { SignNamePt: "libra", SignNameEn: "libra" },
-    { SignNamePt: "escorpiao", SignNameEn: "scorpio" },
-    { SignNamePt: "sagitario", SignNameEn: "sagittarius" },
-    { SignNamePt: "capricornio", SignNameEn: "capricorn" },
-    { SignNamePt: "aquario", SignNameEn: "aquarius" },
-    { SignNamePt: "peixes", SignNameEn: "pisces" },
+  const listSignName: IsignName[] = [
+    { signNamePt: "aries", signNameEn: "aries" },
+    { signNamePt: "touro", signNameEn: "taurus" },
+    { signNamePt: "gemeos", signNameEn: "gemini" },
+    { signNamePt: "cancer", signNameEn: "cancer" },
+    { signNamePt: "leao", signNameEn: "leo" },
+    { signNamePt: "virgem", signNameEn: "virgo" },
+    { signNamePt: "libra", signNameEn: "libra" },
+    { signNamePt: "escorpiao", signNameEn: "scorpio" },
+    { signNamePt: "sagitario", signNameEn: "sagittarius" },
+    { signNamePt: "capricornio", signNameEn: "capricorn" },
+    { signNamePt: "aquario", signNameEn: "aquarius" },
+    { signNamePt: "peixes", signNameEn: "pisces" },
   ];
 
   return (

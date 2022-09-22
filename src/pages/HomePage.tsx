@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
 import SetAllCards from "../components/organisms/HomeCards";
 
-const HomePage = () => {
+const HomePage = () : ReactElement => {
   
   return (
     <SetAllCards />

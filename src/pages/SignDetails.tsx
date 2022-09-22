@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
 import CardDetails from "../components/organisms/CardDetails";
 
-const SignDetails = () => {
+const SignDetails = () : ReactElement => {
   return <CardDetails />;
 };
 
