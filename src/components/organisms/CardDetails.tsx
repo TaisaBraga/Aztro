@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, ReactElement } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     margin: "5rem",
     width: "15.625rem",
-
   },
   span: {
     color: "#9e0a9e",
@@ -99,11 +98,17 @@ const useStyles = makeStyles((theme) => ({
 const baseImageUrl =
   "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos";
 
+export enum Days {
+  YESTERDAY = "yesterday",
+  TODAY = "today",
+  TOMORROW = "tomorrow",
+}
+
 const SignDetails = () => {
   const classes = useStyles();
   const [sign, setSign] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [day, setDay] = useState("today");
+  const [day, setDay] = useState(Days.TODAY);
   const { signName } = useParams();
   const navigate = useNavigate();
   const { listSignName } = useContext(SignsNameContext);
@@ -130,11 +135,11 @@ const SignDetails = () => {
               Daily <span className={classes.span}>{signName}</span> horoscope
             </h2>
             {listSignName
-              .filter((item) => item.SignNameEn === signName)
+              .filter((item) => item.signNameEn === signName)
               .map((setSignImage, index) => (
                 <img
                   key={index}
-                  src={`${baseImageUrl}/signo-${setSignImage.SignNamePt}.png`}
+                  src={`${baseImageUrl}/signo-${setSignImage.signNamePt}.png`}
                   alt=""
                   className={classes.signImage}
                 />
@@ -144,23 +149,23 @@ const SignDetails = () => {
             <input
               className={classes.changeDateButton}
               type="button"
-              value="yesterday"
-              onClick={() => setDay("yesterday")}
+              value={Days.YESTERDAY}
+              onClick={() => setDay(Days.YESTERDAY)}
             />
             <input
               className={classes.changeDateButton}
               type="button"
               style={{
-                backgroundColor: day === "today" ? "#aa6581" : "#503850",
+                backgroundColor: day === Days.TODAY ? "#aa6581" : "#503850",
               }}
-              value="Today"
-              onClick={() => setDay("today")}
+              value={Days.TODAY}
+              onClick={() => setDay(Days.TODAY)}
             />
             <input
               className={classes.changeDateButton}
               type="button"
-              value="tomorrow"
-              onClick={() => setDay("tomorrow")}
+              value={Days.TOMORROW}
+              onClick={() => setDay(Days.TOMORROW)}
             />
           </div>
           <div className={classes.extraDetailsSign}>

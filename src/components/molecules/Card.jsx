@@ -40,14 +40,14 @@ const SingleCard = ({ signName, imageName }) => {
   return (
     <div
       className={classes.root}
-      onClick={() => navigate(`/horoscopo/${signName.SignNameEn}`)}
+      onClick={() => navigate(`/horoscopo/${signName.signNameEn}`)}
     >
       <img
         src={`${baseImageUrl}/${imageName}`}
         alt="Sign"
         className={classes.cardImage}
       />
-      <p className={classes.cardText}>{signName.SignNameEn}</p>
+      <p className={classes.cardText}>{signName.signNameEn}</p>
     </div>
   );
 };

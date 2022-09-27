@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "../molecules/Card";
 import { IsignName, useSignsName } from "../../context/ListSignNames";
