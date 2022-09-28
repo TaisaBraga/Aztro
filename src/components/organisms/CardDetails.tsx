@@ -1,10 +1,13 @@
-import { useState, useEffect, useContext, ReactElement } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Loader from "../molecules/Loader";
-import { returnSignDetails } from "../../services/serviceApi";
+import {
+  IreturnSignDetails,
+  returnSignDetails,
+} from "../../services/serviceApi";
 import { SignsNameContext } from "../../context/ListSignNames";
 
 const useStyles = makeStyles((theme) => ({
@@ -106,10 +109,21 @@ export enum Days {
 
 const SignDetails = () => {
   const classes = useStyles();
-  const [sign, setSign] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [sign, setSign] = useState<void | IreturnSignDetails>(
+    Object /*OU {
+    current_date: "",
+    compatibility: "",
+    lucky_number: "",
+    lucky_time: "",
+    color: "",
+    date_range: "",
+    mood: "",
+    description: ""
+  }*/
+  );
+  const [loading, setLoading] = useState<boolean>(true);
   const [day, setDay] = useState(Days.TODAY);
-  const { signName } = useParams();
+  const { signName } = useParams<string>();
   const navigate = useNavigate();
   const { listSignName } = useContext(SignsNameContext);
 
@@ -170,7 +184,7 @@ const SignDetails = () => {
           </div>
           <div className={classes.extraDetailsSign}>
             <p className={classes.dailyDetailsDescription}>
-              {sign.description}
+              {sign?.description}
             </p>
             <div className={classes.iconDiv}>
               <StarIcon
@@ -183,19 +197,19 @@ const SignDetails = () => {
               More information about {signName} sign
             </h3>
             <p className={classes.detailsDescription}>
-              Birth in: {sign.date_range}
+              Birth in: {sign?.date_range}
             </p>
             <p className={classes.detailsDescription}>
-              Compatibility: {sign.compatibility}
+              Compatibility: {sign?.compatibility}
             </p>
             <p className={classes.detailsDescription}>
-              Lucky Time: {sign.lucky_time}
+              Lucky Time: {sign?.lucky_time}
             </p>
             <p className={classes.detailsDescription}>
-              Lucky Number: {sign.lucky_number}
+              Lucky Number: {sign?.lucky_number}
             </p>
-            <p className={classes.detailsDescription}>Color: {sign.color}</p>
-            <p className={classes.detailsDescription}>Mood: {sign.mood}</p>
+            <p className={classes.detailsDescription}>Color: {sign?.color}</p>
+            <p className={classes.detailsDescription}>Mood: {sign?.mood}</p>
           </div>
         </>
       )}
