@@ -109,7 +109,7 @@ export enum Days {
 
 const SignDetails = () => {
   const classes = useStyles();
-  const [sign, setSign] = useState<void | IreturnSignDetails>({} as IreturnSignDetails);
+  const [sign, setSign] = useState<IreturnSignDetails>({} as IreturnSignDetails);
   const [loading, setLoading] = useState<boolean>(true);
   const [day, setDay] = useState(Days.TODAY);
   const { signName } = useParams<string>();
