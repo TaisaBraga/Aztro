@@ -1,6 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { IsignName } from "../../context/ListSignNames";
 
 const baseImageUrl =
   "https://capricho.abril.com.br/wp-content/plugins/abril-plugins/abril-horoscopo/templates/includes/images/signos";
@@ -33,21 +33,27 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SingleCard = ({ signName, imageName }) => {
+const SingleCard = ({
+  signName,
+  imageName,
+}: {
+  signName: IsignName;
+  imageName: string;
+}) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
   return (
     <div
       className={classes.root}
-      onClick={() => navigate(`/horoscopo/${signName.SignNameEn}`)}
+      onClick={() => navigate(`/horoscopo/${signName.signNameEn}`)}
     >
       <img
         src={`${baseImageUrl}/${imageName}`}
         alt="Sign"
         className={classes.cardImage}
       />
-      <p className={classes.cardText}>{signName.SignNameEn}</p>
+      <p className={classes.cardText}>{signName.signNameEn}</p>
     </div>
   );
 };

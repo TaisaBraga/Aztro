@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import { ReactElement } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "../molecules/Card";
-import { SignsNameContext } from "../../context/ListSignNames";
+import { IsignName, useSignsName } from "../../context/ListSignNames";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,17 +15,17 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SetAllCards = () => {
+const SetAllCards= () : ReactElement => {
   const classes = useStyles();
-  const { listSignName } = useContext(SignsNameContext);
+  const { listSignName } = useSignsName();
   
   return (
     <div className={classes.root}>
-      {listSignName.map((item, index) => (
+      {listSignName.map((item: IsignName, index: number) => (
         <Card
           key={index}
           signName={item}
-          imageName={`signo-${item.SignNamePt}.png`}
+          imageName={`signo-${item.signNamePt}.png`}
         />
       ))}
     </div>
