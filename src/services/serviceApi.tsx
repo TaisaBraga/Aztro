@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export interface IreturnSignDetails {
   current_date: string;
@@ -13,24 +13,29 @@ export interface IreturnSignDetails {
 
 const baseUrl: string = "https://aztro.sameerkumar.website";
 
+const mapToSignDetails = (signs: IreturnSignDetails) => {
+  return {
+    current_date: signs.current_date,
+    compatibility: signs.compatibility,
+    lucky_number: signs.lucky_number,
+    lucky_time: signs.lucky_time,
+    color: signs.color,
+    date_range: signs.date_range,
+    mood: signs.mood,
+    description: signs.description,
+  };
+}
+
 export async function returnSignDetails(
-  signName: string | undefined,
-  day: string
-): Promise<void | IreturnSignDetails> {
-  return await axios
-    .post<IreturnSignDetails>(`${baseUrl}/?sign=${signName}&day=${day}`)
-    .then((response) => {
-      const signs: IreturnSignDetails = response.data;
-      return {
-        current_date: signs.current_date,
-        compatibility: signs.compatibility,
-        lucky_number: signs.lucky_number,
-        lucky_time: signs.lucky_time,
-        color: signs.color,
-        date_range: signs.date_range,
-        mood: signs.mood,
-        description: signs.description,
-      };
-    })
-    .catch((err) => console.log(err));
+  day: string,
+  signName?: string
+): Promise<any> {
+  console.log("dia", {day, signName})
+  return {day, signName}
+  // return await axios
+  //   .post<IreturnSignDetails>(`https://aztro.sameerkumar.website/?sign=gemini&day=today`)
+  //   .then((response: AxiosResponse) => {
+  //     return  mapToSignDetails(response.data)
+  //   })
+  //   .catch((err) => console.log(err));
 }

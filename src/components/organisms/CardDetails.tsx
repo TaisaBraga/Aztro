@@ -109,18 +109,7 @@ export enum Days {
 
 const SignDetails = () => {
   const classes = useStyles();
-  const [sign, setSign] = useState<void | IreturnSignDetails>(
-    Object /*OU {
-    current_date: "",
-    compatibility: "",
-    lucky_number: "",
-    lucky_time: "",
-    color: "",
-    date_range: "",
-    mood: "",
-    description: ""
-  }*/
-  );
+  const [sign, setSign] = useState<void | IreturnSignDetails>({} as IreturnSignDetails);
   const [loading, setLoading] = useState<boolean>(true);
   const [day, setDay] = useState(Days.TODAY);
   const { signName } = useParams<string>();
@@ -128,10 +117,10 @@ const SignDetails = () => {
   const { listSignName } = useContext(SignsNameContext);
 
   useEffect(() => {
-    returnSignDetails(signName, day).then((data) => {
-      setSign(data);
-      setLoading(false);
-    });
+    returnSignDetails(day, signName).then((data) => {
+      console.log("then", data)
+    })
+    .catch((err) => console.log( "catch",err));
   }, [signName, day]);
 
   return (
