@@ -30,12 +30,10 @@ export async function returnSignDetails(
   day: string,
   signName?: string
 ): Promise<any> {
-  console.log("dia", {day, signName})
-  return {day, signName}
-  // return await axios
-  //   .post<IreturnSignDetails>(`https://aztro.sameerkumar.website/?sign=gemini&day=today`)
-  //   .then((response: AxiosResponse) => {
-  //     return  mapToSignDetails(response.data)
-  //   })
-  //   .catch((err) => console.log(err));
+  return await axios
+    .post<IreturnSignDetails>(`${baseUrl}/?sign=${signName}&day=${day}`)
+    .then((response: AxiosResponse) => {
+      return  mapToSignDetails(response.data)
+    })
+    .catch((err) => console.log(err));
 }

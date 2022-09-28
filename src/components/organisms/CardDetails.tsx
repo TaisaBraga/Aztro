@@ -118,7 +118,8 @@ const SignDetails = () => {
 
   useEffect(() => {
     returnSignDetails(day, signName).then((data) => {
-      console.log("then", data)
+      setSign(data)
+      setLoading(false)
     })
     .catch((err) => console.log( "catch",err));
   }, [signName, day]);
