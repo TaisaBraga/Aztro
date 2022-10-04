@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Cinzel Decorative, cursive",
     marginBottom: "0.5rem",
     marginTop: "0.5em",
+    "@media (max-width: 768px)":{
+      textAlign: "center",
+      fontSize: "1.2rem"
+    }
   },
   signImage: {
     display: "flex",
@@ -28,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     margin: "5rem",
     width: "15.625rem",
+    "@media (max-width: 768px)":{
+      position: "relative",
+      alignSelf: "center",
+      margin: "0.5rem 0 0.5rem 0",
+      width: "10.625rem",
+    }
   },
   span: {
     color: "#9e0a9e",
@@ -54,6 +64,10 @@ const useStyles = makeStyles((theme) => ({
     "&:focus": {
       backgroundColor: "#aa6581",
     },
+    "@media (max-width: 768px)":{
+      width: "5rem",
+      fontSize: "0.7em"
+    }
   },
   extraDetailsSign: {
     alignItems: "center",
@@ -63,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     maxWidth: "31.25rem",
     textAlign: "justify",
+    "@media (max-width: 768px)":{
+      marginBottom: "1rem"
+    }
   },
   iconDiv: {
     display: "flex",
@@ -73,16 +90,26 @@ const useStyles = makeStyles((theme) => ({
   subTitleDetails: {
     fontFamily: "Quicksand, sans-serif",
     marginLeft: "1em",
+    "@media (max-width: 768px)":{
+      textAlign: "center",
+      fontSize: "1.2em"
+    }
   },
   dailyDetailsDescription: {
     fontFamily: "Quicksand, sans-serif",
     padding: "1em",
     textIndent: "5%",
+    "@media (max-width: 768px)":{
+      fontSize: "1rem",
+    }
   },
   detailsDescription: {
     fontFamily: "Quicksand, sans-serif",
     textIndent: "10%",
     marginTop: "0.5em",
+    "@media (max-width: 768px)":{
+      fontSize: "1rem",
+    }
   },
   ToBackIcon: {
     background: "#503850",
@@ -95,6 +122,9 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#aa6581",
     },
+    "@media (max-width: 768px)":{
+      display: "none"
+    }
   },
 }));
 
