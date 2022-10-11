@@ -32,7 +32,14 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     margin: "5rem",
     width: "15.625rem",
-    "@media (max-width: 768px)":{
+    "@media (max-width: 1024px)":{
+      width: "8.625rem"
+    },
+    "@media (max-width: 820px)":{
+      width: "8.625rem",
+      marginLeft: "1.8rem"
+    },
+    "@media (max-width: 720px)":{
       position: "relative",
       alignSelf: "center",
       margin: "0.5rem 0 0.5rem 0",
