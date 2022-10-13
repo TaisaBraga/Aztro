@@ -15,14 +15,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SetAllCards= () : ReactElement => {
+const SetAllCards = (): ReactElement => {
   const classes = useStyles();
   const { listSignName } = useSignsName();
-  
+
   return (
     <div className={classes.root}>
       {listSignName.map((item: IsignName, index: number) => (
         <Card
+          data-testid="cardsList"
           key={index}
           signName={item}
           imageName={`signo-${item.signNamePt}.png`}

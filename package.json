@@ -14,6 +14,7 @@
     "@types/react": "^17.0.50",
     "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
+    "axios-mock-adapter": "^1.21.2",
     "framer-motion": "^7.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
