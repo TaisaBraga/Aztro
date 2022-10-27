@@ -21,9 +21,8 @@ const SetAllCards = (): ReactElement => {
 
   return (
     <div className={classes.root}>
-      {listSignName.map((item: IsignName, index: number) => (
+      {listSignName?.map((item: IsignName, index: number) => (
         <Card
-          data-testid="cardsList"
           key={index}
           signName={item}
           imageName={`signo-${item.signNamePt}.png`}
